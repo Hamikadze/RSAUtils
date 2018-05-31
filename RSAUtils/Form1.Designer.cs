@@ -56,7 +56,7 @@
             // EncryptBtn
             // 
             this.EncryptBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.EncryptBtn.Location = new System.Drawing.Point(6, 494);
+            this.EncryptBtn.Location = new System.Drawing.Point(6, 256);
             this.EncryptBtn.Name = "EncryptBtn";
             this.EncryptBtn.Size = new System.Drawing.Size(85, 23);
             this.EncryptBtn.TabIndex = 0;
@@ -67,7 +67,7 @@
             // CrackBtn
             // 
             this.CrackBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CrackBtn.Location = new System.Drawing.Point(6, 341);
+            this.CrackBtn.Location = new System.Drawing.Point(6, 256);
             this.CrackBtn.Name = "CrackBtn";
             this.CrackBtn.Size = new System.Drawing.Size(85, 23);
             this.CrackBtn.TabIndex = 20;
@@ -85,7 +85,7 @@
             this.Value});
             this.EncryptDataLView.Location = new System.Drawing.Point(6, 45);
             this.EncryptDataLView.Name = "EncryptDataLView";
-            this.EncryptDataLView.Size = new System.Drawing.Size(517, 443);
+            this.EncryptDataLView.Size = new System.Drawing.Size(334, 205);
             this.EncryptDataLView.TabIndex = 21;
             this.EncryptDataLView.UseCompatibleStateImageBehavior = false;
             this.EncryptDataLView.View = System.Windows.Forms.View.Details;
@@ -99,7 +99,7 @@
             // Value
             // 
             this.Value.Text = "Value";
-            this.Value.Width = 330;
+            this.Value.Width = 150;
             // 
             // OriginalInputTBox
             // 
@@ -108,7 +108,7 @@
             this.OriginalInputTBox.Location = new System.Drawing.Point(6, 19);
             this.OriginalInputTBox.MaxLength = 6;
             this.OriginalInputTBox.Name = "OriginalInputTBox";
-            this.OriginalInputTBox.Size = new System.Drawing.Size(517, 20);
+            this.OriginalInputTBox.Size = new System.Drawing.Size(334, 20);
             this.OriginalInputTBox.TabIndex = 22;
             this.OriginalInputTBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             this.OriginalInputTBox.MouseHover += new System.EventHandler(this.OriginalInputTBox_MouseHover);
@@ -123,7 +123,7 @@
             this.GTabControl.Location = new System.Drawing.Point(13, 13);
             this.GTabControl.Name = "GTabControl";
             this.GTabControl.SelectedIndex = 0;
-            this.GTabControl.Size = new System.Drawing.Size(537, 396);
+            this.GTabControl.Size = new System.Drawing.Size(354, 311);
             this.GTabControl.TabIndex = 23;
             this.GTabControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CrackDataLView_KeyPress);
             // 
@@ -136,7 +136,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(529, 523);
+            this.tabPage1.Size = new System.Drawing.Size(346, 285);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Генерация параметров";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -164,7 +164,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(529, 370);
+            this.tabPage2.Size = new System.Drawing.Size(346, 285);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Циклический взлом";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -173,7 +173,7 @@
             // 
             this.UseKnownСBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.UseKnownСBox.AutoSize = true;
-            this.UseKnownСBox.Location = new System.Drawing.Point(97, 345);
+            this.UseKnownСBox.Location = new System.Drawing.Point(97, 260);
             this.UseKnownСBox.Name = "UseKnownСBox";
             this.UseKnownСBox.Size = new System.Drawing.Size(193, 17);
             this.UseKnownСBox.TabIndex = 30;
@@ -191,7 +191,7 @@
             this.columnHeader2});
             this.CrackDataLView.Location = new System.Drawing.Point(6, 123);
             this.CrackDataLView.Name = "CrackDataLView";
-            this.CrackDataLView.Size = new System.Drawing.Size(517, 212);
+            this.CrackDataLView.Size = new System.Drawing.Size(334, 127);
             this.CrackDataLView.TabIndex = 29;
             this.CrackDataLView.UseCompatibleStateImageBehavior = false;
             this.CrackDataLView.View = System.Windows.Forms.View.Details;
@@ -204,7 +204,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Value";
-            this.columnHeader2.Width = 330;
+            this.columnHeader2.Width = 150;
             // 
             // EInputLabel
             // 
@@ -240,7 +240,7 @@
             this.EInputTBox.Location = new System.Drawing.Point(6, 97);
             this.EInputTBox.MaxLength = 6;
             this.EInputTBox.Name = "EInputTBox";
-            this.EInputTBox.Size = new System.Drawing.Size(517, 20);
+            this.EInputTBox.Size = new System.Drawing.Size(334, 20);
             this.EInputTBox.TabIndex = 25;
             this.EInputTBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EInputTBox_KeyPress);
             this.EInputTBox.MouseHover += new System.EventHandler(this.EInputTBox_MouseHover);
@@ -252,7 +252,7 @@
             this.NInputTBox.Location = new System.Drawing.Point(6, 58);
             this.NInputTBox.MaxLength = 6;
             this.NInputTBox.Name = "NInputTBox";
-            this.NInputTBox.Size = new System.Drawing.Size(517, 20);
+            this.NInputTBox.Size = new System.Drawing.Size(334, 20);
             this.NInputTBox.TabIndex = 24;
             this.NInputTBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NInputTBox_KeyPress);
             this.NInputTBox.MouseHover += new System.EventHandler(this.NInputTBox_MouseHover);
@@ -264,7 +264,7 @@
             this.EncryptInputTBox.Location = new System.Drawing.Point(6, 19);
             this.EncryptInputTBox.MaxLength = 6;
             this.EncryptInputTBox.Name = "EncryptInputTBox";
-            this.EncryptInputTBox.Size = new System.Drawing.Size(517, 20);
+            this.EncryptInputTBox.Size = new System.Drawing.Size(334, 20);
             this.EncryptInputTBox.TabIndex = 23;
             this.EncryptInputTBox.MouseHover += new System.EventHandler(this.EncryptInputTBox_MouseHover);
             // 
@@ -272,7 +272,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 421);
+            this.ClientSize = new System.Drawing.Size(379, 336);
             this.Controls.Add(this.GTabControl);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";

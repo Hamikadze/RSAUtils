@@ -57,8 +57,8 @@ namespace RSAUtils
 
                 Q.randomGenerator();
 
-                P.result = 61;
-                Q.result = 53;
+                //P.result = 61;
+                //Q.result = 53;
                 if (P.MillerRabinTest(10) && Q.MillerRabinTest(10))
                 {
                     N = P.result * Q.result;
@@ -72,7 +72,7 @@ namespace RSAUtils
                 F.EulerFunction(P.result, Q.result);
                 Exp.eGenerator(F.result);
 
-                Exp.result = 17;
+                //Exp.result = 17;
 
                 priv_key.getPrivateKey(Exp.result, F.result);
 
