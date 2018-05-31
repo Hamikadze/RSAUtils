@@ -1,6 +1,6 @@
 ﻿namespace RSAUtils
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -48,9 +48,12 @@
             this.EInputTBox = new System.Windows.Forms.TextBox();
             this.NInputTBox = new System.Windows.Forms.TextBox();
             this.EncryptInputTBox = new System.Windows.Forms.TextBox();
+            this.CancelBtn = new System.Windows.Forms.Button();
+            this.CancelPanel = new System.Windows.Forms.Panel();
             this.GTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.CancelPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // EncryptBtn
@@ -268,14 +271,39 @@
             this.EncryptInputTBox.TabIndex = 23;
             this.EncryptInputTBox.MouseHover += new System.EventHandler(this.EncryptInputTBox_MouseHover);
             // 
-            // Form1
+            // CancelBtn
+            // 
+            this.CancelBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CancelBtn.Location = new System.Drawing.Point(8, 3);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(340, 26);
+            this.CancelBtn.TabIndex = 0;
+            this.CancelBtn.Text = "Досрочно прервать взлом";
+            this.CancelBtn.UseVisualStyleBackColor = true;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
+            // 
+            // CancelPanel
+            // 
+            this.CancelPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CancelPanel.Controls.Add(this.CancelBtn);
+            this.CancelPanel.Location = new System.Drawing.Point(12, 291);
+            this.CancelPanel.Name = "CancelPanel";
+            this.CancelPanel.Size = new System.Drawing.Size(355, 33);
+            this.CancelPanel.TabIndex = 24;
+            this.CancelPanel.Visible = false;
+            this.CancelPanel.VisibleChanged += new System.EventHandler(this.CancelPanel_VisibleChanged);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 336);
+            this.Controls.Add(this.CancelPanel);
             this.Controls.Add(this.GTabControl);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Главное окно";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.GTabControl.ResumeLayout(false);
@@ -283,6 +311,7 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.CancelPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -309,6 +338,8 @@
         private System.Windows.Forms.TextBox NInputTBox;
         private System.Windows.Forms.TextBox EncryptInputTBox;
         private System.Windows.Forms.CheckBox UseKnownСBox;
+        private System.Windows.Forms.Button CancelBtn;
+        private System.Windows.Forms.Panel CancelPanel;
     }
 }
 

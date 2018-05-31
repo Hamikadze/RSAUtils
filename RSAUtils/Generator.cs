@@ -58,12 +58,9 @@ namespace RSAUtils
             Random rnd = new Random(rng.GetHashCode());
             int bytes = bitLength / 8;
             int bits = bitLength % 8;
-
-            // Generates enough random bytes to cover our bits.
             byte[] bs = new byte[bytes + 1];
             rnd.NextBytes(bs);
 
-            // Mask out the unnecessary bits.
             byte mask = (byte)(0xFF >> (8 - bits));
             bs[bs.Length - 1] &= mask;
 
@@ -100,8 +97,7 @@ namespace RSAUtils
             return true;
         }
 
-        public bool MillerRabinTest(BigInteger k)               //primality test
-
+        public bool MillerRabinTest(BigInteger k)
         {
             if (result == 2 || result == 3)
 
@@ -170,7 +166,7 @@ namespace RSAUtils
             return true;
         }
 
-        public void GetNearestPrime()                  //get the next prime
+        public void GetNearestPrime()
 
         {
             while (MillerRabinTest(10) == false)
@@ -179,7 +175,7 @@ namespace RSAUtils
             }
         }
 
-        public void EulerFunction(BigInteger p, BigInteger q)          //euler function: f(n) = (p-1)(q-1)
+        public void EulerFunction(BigInteger p, BigInteger q)
         {
             BigInteger m = p - 1;
 
