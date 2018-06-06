@@ -241,7 +241,6 @@
             this.EInputTBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EInputTBox.Location = new System.Drawing.Point(6, 97);
-            this.EInputTBox.MaxLength = 6;
             this.EInputTBox.Name = "EInputTBox";
             this.EInputTBox.Size = new System.Drawing.Size(334, 20);
             this.EInputTBox.TabIndex = 25;
@@ -253,7 +252,6 @@
             this.NInputTBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.NInputTBox.Location = new System.Drawing.Point(6, 58);
-            this.NInputTBox.MaxLength = 6;
             this.NInputTBox.Name = "NInputTBox";
             this.NInputTBox.Size = new System.Drawing.Size(334, 20);
             this.NInputTBox.TabIndex = 24;
@@ -265,7 +263,6 @@
             this.EncryptInputTBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EncryptInputTBox.Location = new System.Drawing.Point(6, 19);
-            this.EncryptInputTBox.MaxLength = 6;
             this.EncryptInputTBox.Name = "EncryptInputTBox";
             this.EncryptInputTBox.Size = new System.Drawing.Size(334, 20);
             this.EncryptInputTBox.TabIndex = 23;
