@@ -50,6 +50,7 @@
     <Compile Include="Crypt.cs" />
     <Compile Include="CyclicCrack.cs" />
     <Compile Include="GenParams.cs" />
+    <Compile Include="KnownCrack.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

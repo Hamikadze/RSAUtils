@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -94,15 +95,9 @@ namespace RSAUtils
             }
             catch (Exception)
             {
+                MainFornLink.GTabControl.Enabled = true;
+                MainFornLink.CancelPanel.Visible = false;
                 //ignored
-            }
-        }
-
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
             }
         }
 
@@ -114,19 +109,18 @@ namespace RSAUtils
             }
         }
 
-        private void ShowAttention(Control e, int lenght)
+        private void ShowAttention(Control e, string text)
         {
             ToolTip toolTip = new ToolTip();
-            string text = "Можно вводить только целые числа" + (lenght == -1 ? "" : $"длинны меньше {lenght}");
             toolTip.SetToolTip(e, text);
         }
 
         private void OriginalInputTBox_MouseHover(object sender, EventArgs e)
         {
-            ShowAttention(OriginalInputTBox, 7);
+            ShowAttention(OriginalInputTBox, "Можно вводить только целые числа длинны меньше 7");
         }
 
-        private void CrackDataLView_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             KeyFilter(e);
         }
@@ -141,19 +135,24 @@ namespace RSAUtils
             KeyFilter(e);
         }
 
+        private void EncryptInputTBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            KeyFilter(e);
+        }
+
         private void EncryptInputTBox_MouseHover(object sender, EventArgs e)
         {
-            ShowAttention(EncryptInputTBox, -1);
+            ShowAttention(EncryptInputTBox, "Можно вводить только целые числа");
         }
 
         private void NInputTBox_MouseHover(object sender, EventArgs e)
         {
-            ShowAttention(NInputTBox, -1);
+            ShowAttention(NInputTBox, "Можно вводить только целые числа");
         }
 
         private void EInputTBox_MouseHover(object sender, EventArgs e)
         {
-            ShowAttention(EInputTBox, -1);
+            ShowAttention(EInputTBox, "Можно вводить только целые числа");
         }
 
         private void EncryptDataLView_DoubleClick(object sender, EventArgs e)
@@ -197,6 +196,108 @@ namespace RSAUtils
         private void CancelPanel_VisibleChanged(object sender, EventArgs e)
         {
             CancelOperation = false;
+        }
+
+        private void KnownCrackBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MainFornLink.GTabControl.Enabled = false;
+                MainFornLink.CancelPanel.Visible = true;
+                BigInteger exp;
+                BigInteger n;
+                if (!BigInteger.TryParse(KnownEInputTBox.Text, out exp))
+                {
+                    MessageBox.Show("Недопустимые входные данные параметра (e)");
+                    EInputTBox.Clear();
+                    return;
+                };
+
+                if (!BigInteger.TryParse(KnownNInputTBox.Text, out n))
+                {
+                    MessageBox.Show("Недопустимые входные данные параметра (n)");
+                    NInputTBox.Clear();
+                    return;
+                };
+                int start = (int)StartBorderUpDown.Value;
+                int last = (int)LastBorderUpDown.Value;
+                string encryptText = KnownEncryptRichTBox.Text;
+                Regex regex = new Regex(@"\D");
+                encryptText = regex.Replace(encryptText, " ");
+                var encryptChars = encryptText.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList().ConvertAll(BigInteger.Parse);
+                KnownDecryptRichTBox.Clear();
+                Task.Factory.StartNew(() =>
+                {
+                    Dictionary<BigInteger, char> encrypt = KnownCrack.Crack(start, last, exp, n);
+                    bool isunknown = false;
+                    List<BigInteger> unknown = new List<BigInteger>();
+                    foreach (var big in encryptChars)
+                    {
+                        if (encrypt.TryGetValue(big, out char ch))
+                        {
+                            MainFornLink.BeginInvoke(new Action(() =>
+                            {
+                                KnownDecryptRichTBox.AppendText(ch.ToString());
+                            }));
+                        }
+                        else
+                        {
+                            unknown.Add(big);
+                            isunknown = true;
+                        }
+                    }
+                    if (isunknown)
+                    {
+                        MessageBox.Show($"Не удалось расшифровать символы :\n{string.Join("\n", unknown)}\nПопробуйте увеличить границы перебора символов.");
+                    }
+                    MainFornLink.BeginInvoke(new Action(() =>
+                    {
+                        MainFornLink.GTabControl.Enabled = true;
+                        MainFornLink.CancelPanel.Visible = false;
+                    }));
+                });
+            }
+            catch (Exception)
+            {
+                MainFornLink.GTabControl.Enabled = true;
+                MainFornLink.CancelPanel.Visible = false;
+                //ignored
+            }
+        }
+
+        private void KnownEInputTBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            KeyFilter(e);
+        }
+
+        private void KnownNInputTBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            KeyFilter(e);
+        }
+
+        private void RemoveSalt_Click(object sender, EventArgs e)
+        {
+            var row = KnownDecryptRichTBox.Text;
+            KnownDecryptRichTBox.Clear();
+            for (int i = 0; i < row.Length; i++)
+            {
+                KnownDecryptRichTBox.AppendText(((char)(row[i] - i)).ToString());
+            }
+        }
+
+        private void KnownEInputTBox_MouseHover(object sender, EventArgs e)
+        {
+            ShowAttention(EInputTBox, "Можно вводить только целые числа");
+        }
+
+        private void KnownNInputTBox_MouseHover(object sender, EventArgs e)
+        {
+            ShowAttention(EInputTBox, "Можно вводить только целые числа");
+        }
+
+        private void DelimeterTBox_MouseHover(object sender, EventArgs e)
+        {
+            ShowAttention(EInputTBox, "Введите разделитель для текста.\nЕсли текст разделяется только переносом строки,\nто оставлте поле пустым.");
         }
     }
 }
