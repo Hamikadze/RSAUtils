@@ -237,7 +237,14 @@ namespace RSAUtils
                         {
                             MainFornLink.BeginInvoke(new Action(() =>
                             {
-                                KnownDecryptRichTBox.AppendText(ch.ToString());
+                                if (!TextIsNumberCBox.Checked)
+                                {
+                                    KnownDecryptRichTBox.AppendText(ch.ToString());
+                                }
+                                else
+                                {
+                                    KnownDecryptRichTBox.AppendText(((int)ch).ToString() + " ");
+                                }
                             }));
                         }
                         else
@@ -281,23 +288,38 @@ namespace RSAUtils
             KnownDecryptRichTBox.Clear();
             for (int i = 0; i < row.Length; i++)
             {
-                KnownDecryptRichTBox.AppendText(((char)(row[i] - i)).ToString());
+                KnownDecryptRichTBox.AppendText(((char)(row[i] - 2000)).ToString());
             }
         }
 
         private void KnownEInputTBox_MouseHover(object sender, EventArgs e)
         {
-            ShowAttention(EInputTBox, "Можно вводить только целые числа");
+            ShowAttention(KnownEInputTBox, "Можно вводить только целые числа");
         }
 
         private void KnownNInputTBox_MouseHover(object sender, EventArgs e)
         {
-            ShowAttention(EInputTBox, "Можно вводить только целые числа");
+            ShowAttention(KnownNInputTBox, "Можно вводить только целые числа");
         }
 
-        private void DelimeterTBox_MouseHover(object sender, EventArgs e)
+        private void RemoveSalt2_Click(object sender, EventArgs e)
         {
-            ShowAttention(EInputTBox, "Введите разделитель для текста.\nЕсли текст разделяется только переносом строки,\nто оставлте поле пустым.");
+            var row = KnownDecryptRichTBox.Text;
+            KnownDecryptRichTBox.Clear();
+            for (int i = 0; i < row.Length; i++)
+            {
+                KnownDecryptRichTBox.AppendText(((char)(row[i] - 2000)).ToString());
+            }
+        }
+
+        private void RemoveSalt2_MouseHover(object sender, EventArgs e)
+        {
+            ShowAttention(RemoveSalt2, "Для алгоритма Андрей Лалаев");
+        }
+
+        private void RemoveSalt_MouseHover(object sender, EventArgs e)
+        {
+            ShowAttention(RemoveSalt, "Для алгоритма Денис Сибиреков");
         }
     }
 }

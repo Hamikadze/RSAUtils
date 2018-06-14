@@ -49,6 +49,14 @@
             this.NInputTBox = new System.Windows.Forms.TextBox();
             this.EncryptInputTBox = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.TextIsNumberCBox = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.RemoveSalt = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.LastBorderUpDown = new System.Windows.Forms.NumericUpDown();
+            this.StartBorderUpDown = new System.Windows.Forms.NumericUpDown();
             this.KnownEInputTBox = new System.Windows.Forms.TextBox();
             this.KnownNInputTBox = new System.Windows.Forms.TextBox();
             this.KnownCrackBtn = new System.Windows.Forms.Button();
@@ -56,26 +64,20 @@
             this.KnownEncryptRichTBox = new System.Windows.Forms.RichTextBox();
             this.CancelBtn = new System.Windows.Forms.Button();
             this.CancelPanel = new System.Windows.Forms.Panel();
-            this.StartBorderUpDown = new System.Windows.Forms.NumericUpDown();
-            this.LastBorderUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.RemoveSalt = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.RemoveSalt2 = new System.Windows.Forms.Button();
             this.GTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.CancelPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.StartBorderUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LastBorderUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StartBorderUpDown)).BeginInit();
+            this.CancelPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // EncryptBtn
             // 
             this.EncryptBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.EncryptBtn.Location = new System.Drawing.Point(6, 256);
+            this.EncryptBtn.Location = new System.Drawing.Point(6, 359);
             this.EncryptBtn.Name = "EncryptBtn";
             this.EncryptBtn.Size = new System.Drawing.Size(85, 23);
             this.EncryptBtn.TabIndex = 0;
@@ -104,7 +106,7 @@
             this.Value});
             this.EncryptDataLView.Location = new System.Drawing.Point(6, 45);
             this.EncryptDataLView.Name = "EncryptDataLView";
-            this.EncryptDataLView.Size = new System.Drawing.Size(393, 205);
+            this.EncryptDataLView.Size = new System.Drawing.Size(393, 308);
             this.EncryptDataLView.TabIndex = 21;
             this.EncryptDataLView.UseCompatibleStateImageBehavior = false;
             this.EncryptDataLView.View = System.Windows.Forms.View.Details;
@@ -155,7 +157,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(405, 285);
+            this.tabPage1.Size = new System.Drawing.Size(405, 388);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Генерация параметров";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -287,6 +289,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.RemoveSalt2);
+            this.tabPage3.Controls.Add(this.TextIsNumberCBox);
             this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.label4);
             this.tabPage3.Controls.Add(this.RemoveSalt);
@@ -306,6 +310,92 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Ограниченое число команд";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // TextIsNumberCBox
+            // 
+            this.TextIsNumberCBox.AutoSize = true;
+            this.TextIsNumberCBox.Location = new System.Drawing.Point(220, 80);
+            this.TextIsNumberCBox.Name = "TextIsNumberCBox";
+            this.TextIsNumberCBox.Size = new System.Drawing.Size(179, 17);
+            this.TextIsNumberCBox.TabIndex = 35;
+            this.TextIsNumberCBox.Text = "Заштфрованный текст - число";
+            this.TextIsNumberCBox.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 182);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(129, 13);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "Расшифрованный текст";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 81);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(123, 13);
+            this.label4.TabIndex = 33;
+            this.label4.Text = "Зашифрованный текст";
+            // 
+            // RemoveSalt
+            // 
+            this.RemoveSalt.Location = new System.Drawing.Point(314, 359);
+            this.RemoveSalt.Name = "RemoveSalt";
+            this.RemoveSalt.Size = new System.Drawing.Size(85, 23);
+            this.RemoveSalt.TabIndex = 32;
+            this.RemoveSalt.Text = "Убрать соль";
+            this.RemoveSalt.UseVisualStyleBackColor = true;
+            this.RemoveSalt.Click += new System.EventHandler(this.RemoveSalt_Click);
+            this.RemoveSalt.MouseHover += new System.EventHandler(this.RemoveSalt_MouseHover);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(168, 13);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Компонент открытого ключа (n)";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(168, 13);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Компонент открытого ключа (e)";
+            // 
+            // LastBorderUpDown
+            // 
+            this.LastBorderUpDown.Location = new System.Drawing.Point(154, 362);
+            this.LastBorderUpDown.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.LastBorderUpDown.Name = "LastBorderUpDown";
+            this.LastBorderUpDown.Size = new System.Drawing.Size(51, 20);
+            this.LastBorderUpDown.TabIndex = 8;
+            this.LastBorderUpDown.Value = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            // 
+            // StartBorderUpDown
+            // 
+            this.StartBorderUpDown.Location = new System.Drawing.Point(97, 362);
+            this.StartBorderUpDown.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.StartBorderUpDown.Name = "StartBorderUpDown";
+            this.StartBorderUpDown.Size = new System.Drawing.Size(51, 20);
+            this.StartBorderUpDown.TabIndex = 7;
             // 
             // KnownEInputTBox
             // 
@@ -384,88 +474,24 @@
             this.CancelPanel.Visible = false;
             this.CancelPanel.VisibleChanged += new System.EventHandler(this.CancelPanel_VisibleChanged);
             // 
-            // StartBorderUpDown
+            // RemoveSalt2
             // 
-            this.StartBorderUpDown.Location = new System.Drawing.Point(97, 362);
-            this.StartBorderUpDown.Maximum = new decimal(new int[] {
-            100000000,
-            0,
-            0,
-            0});
-            this.StartBorderUpDown.Name = "StartBorderUpDown";
-            this.StartBorderUpDown.Size = new System.Drawing.Size(51, 20);
-            this.StartBorderUpDown.TabIndex = 7;
-            // 
-            // LastBorderUpDown
-            // 
-            this.LastBorderUpDown.Location = new System.Drawing.Point(154, 362);
-            this.LastBorderUpDown.Maximum = new decimal(new int[] {
-            100000000,
-            0,
-            0,
-            0});
-            this.LastBorderUpDown.Name = "LastBorderUpDown";
-            this.LastBorderUpDown.Size = new System.Drawing.Size(51, 20);
-            this.LastBorderUpDown.TabIndex = 8;
-            this.LastBorderUpDown.Value = new decimal(new int[] {
-            2000,
-            0,
-            0,
-            0});
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 13);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Компонент открытого ключа (e)";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(168, 13);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "Компонент открытого ключа (n)";
-            // 
-            // RemoveSalt
-            // 
-            this.RemoveSalt.Location = new System.Drawing.Point(314, 359);
-            this.RemoveSalt.Name = "RemoveSalt";
-            this.RemoveSalt.Size = new System.Drawing.Size(85, 23);
-            this.RemoveSalt.TabIndex = 32;
-            this.RemoveSalt.Text = "Убрать соль";
-            this.RemoveSalt.UseVisualStyleBackColor = true;
-            this.RemoveSalt.Click += new System.EventHandler(this.RemoveSalt_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 81);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 13);
-            this.label4.TabIndex = 33;
-            this.label4.Text = "Зашифрованный текст";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 182);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(129, 13);
-            this.label5.TabIndex = 34;
-            this.label5.Text = "Расшифрованный текст";
+            this.RemoveSalt2.Location = new System.Drawing.Point(223, 359);
+            this.RemoveSalt2.Name = "RemoveSalt2";
+            this.RemoveSalt2.Size = new System.Drawing.Size(85, 23);
+            this.RemoveSalt2.TabIndex = 36;
+            this.RemoveSalt2.Text = "Убрать соль";
+            this.RemoveSalt2.UseVisualStyleBackColor = true;
+            this.RemoveSalt2.Click += new System.EventHandler(this.RemoveSalt2_Click);
+            this.RemoveSalt2.MouseHover += new System.EventHandler(this.RemoveSalt2_MouseHover);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(438, 439);
-            this.Controls.Add(this.CancelPanel);
             this.Controls.Add(this.GTabControl);
+            this.Controls.Add(this.CancelPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "Главное окно";
@@ -477,9 +503,9 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.CancelPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.StartBorderUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LastBorderUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StartBorderUpDown)).EndInit();
+            this.CancelPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -521,6 +547,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button RemoveSalt;
+        private System.Windows.Forms.CheckBox TextIsNumberCBox;
+        private System.Windows.Forms.Button RemoveSalt2;
     }
 }
 
