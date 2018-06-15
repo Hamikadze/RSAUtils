@@ -49,6 +49,7 @@
             this.NInputTBox = new System.Windows.Forms.TextBox();
             this.EncryptInputTBox = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.RemoveSalt2 = new System.Windows.Forms.Button();
             this.TextIsNumberCBox = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -64,7 +65,6 @@
             this.KnownEncryptRichTBox = new System.Windows.Forms.RichTextBox();
             this.CancelBtn = new System.Windows.Forms.Button();
             this.CancelPanel = new System.Windows.Forms.Panel();
-            this.RemoveSalt2 = new System.Windows.Forms.Button();
             this.GTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -311,6 +311,17 @@
             this.tabPage3.Text = "Ограниченое число команд";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // RemoveSalt2
+            // 
+            this.RemoveSalt2.Location = new System.Drawing.Point(223, 359);
+            this.RemoveSalt2.Name = "RemoveSalt2";
+            this.RemoveSalt2.Size = new System.Drawing.Size(85, 23);
+            this.RemoveSalt2.TabIndex = 36;
+            this.RemoveSalt2.Text = "Убрать соль";
+            this.RemoveSalt2.UseVisualStyleBackColor = true;
+            this.RemoveSalt2.Click += new System.EventHandler(this.RemoveSalt2_Click);
+            this.RemoveSalt2.MouseHover += new System.EventHandler(this.RemoveSalt2_MouseHover);
+            // 
             // TextIsNumberCBox
             // 
             this.TextIsNumberCBox.AutoSize = true;
@@ -474,24 +485,13 @@
             this.CancelPanel.Visible = false;
             this.CancelPanel.VisibleChanged += new System.EventHandler(this.CancelPanel_VisibleChanged);
             // 
-            // RemoveSalt2
-            // 
-            this.RemoveSalt2.Location = new System.Drawing.Point(223, 359);
-            this.RemoveSalt2.Name = "RemoveSalt2";
-            this.RemoveSalt2.Size = new System.Drawing.Size(85, 23);
-            this.RemoveSalt2.TabIndex = 36;
-            this.RemoveSalt2.Text = "Убрать соль";
-            this.RemoveSalt2.UseVisualStyleBackColor = true;
-            this.RemoveSalt2.Click += new System.EventHandler(this.RemoveSalt2_Click);
-            this.RemoveSalt2.MouseHover += new System.EventHandler(this.RemoveSalt2_MouseHover);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(438, 439);
-            this.Controls.Add(this.GTabControl);
             this.Controls.Add(this.CancelPanel);
+            this.Controls.Add(this.GTabControl);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "Главное окно";
