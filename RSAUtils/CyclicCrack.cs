@@ -16,17 +16,19 @@ namespace RSAUtils
             {
                 var items = new Dictionary<string, BigInteger>();
                 BigInteger current = c;
+                BigInteger last = c;
                 int k = 0;
                 do
                 {
                     k++;
+                    last = current;
                     current = BigInteger.ModPow(current, e, n);
                 } while (!MainForm.CancelOperation && current != c);
                 items.Clear();
                 items.Add("Количество итераций (k)", k);
 
                 if (!MainForm.CancelOperation)
-                    items.Add("Исходное число (m)", BigInteger.ModPow(c, BigInteger.Pow(e, k - 1), n));
+                    items.Add("Исходное число (m)", last);
                 return items;
             }
             catch (Exception exception)
