@@ -15,11 +15,13 @@ namespace RSAUtils
             try
             {
                 var items = new Dictionary<string, BigInteger>();
+                BigInteger current = c;
                 int k = 0;
                 do
                 {
                     k++;
-                } while (!MainForm.CancelOperation && BigInteger.ModPow(c, BigInteger.Pow(e, k), n) != c);
+                    current = BigInteger.ModPow(current, e, n);
+                } while (!MainForm.CancelOperation && current != c);
                 items.Clear();
                 items.Add("Количество итераций (k)", k);
 
